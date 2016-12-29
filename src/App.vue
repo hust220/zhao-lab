@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <el-row>
-      <el-col :span="20" :offset="2">
+      <el-col :span="18" :offset="3">
         <demo></demo>
       </el-col>
     </el-row>
     <top-nav></top-nav>
     <el-row>
-      <el-col :span="20" :offset="2">
+      <el-col :span="18" :offset="3">
         <router-view></router-view>
       </el-col>
     </el-row>

@@ -38,7 +38,7 @@
       var v = this
       window.setInterval(function () {
         v.count += 1
-      }, 3000)
+      }, 5000)
     },
     watch: {
       '$route': 'fetch_data'
@@ -65,4 +65,8 @@
 .news {
   margin-bottom: 10px;
 }
+.news-text {
+  text-align: left;
+}
+
 </style>

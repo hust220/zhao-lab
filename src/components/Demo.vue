@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="demo">
         <img src="static/logo.png" />
         Zhao Lab
     </div>
@@ -12,9 +12,12 @@
 </script>
 
 <style>
-.top-nav {
-    margin-bottom: 10px;
-    /*background-image: url(../assets/bg.jpg);
-    height: 200px;*/
+.demo {
+    text-align: left;
+    height: 50px;
+    padding: 10px 0px;
+}
+.demo img {
+  height: 50px;
 }
 </style>

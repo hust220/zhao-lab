@@ -1,7 +1,7 @@
 <template>
-  <el-row>
+  <el-row class="top-nav">
     <el-menu default-active="1" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-col :span="20" :offset="2">
+      <el-col :span="18" :offset="3">
         <el-menu-item index="1">
           <router-link to="/home">Home</router-link>
         </el-menu-item>
@@ -46,5 +46,7 @@ a {
   color: rgb(71, 86, 105);
   text-decoration: none;
 }
-
+.top-nav {
+  margin-bottom: 10px;
+}
 </style>
