@@ -1,0 +1,22 @@
+[
+    {
+        "link": "www.baidu.com",
+        "text": "This is the first news.",
+        "date": "2016-12-29"
+    },
+    {
+        "link": "www.baidu.com",
+        "text": "This is the second news.",
+        "date": "2016-12-29"
+    },
+    {
+        "link": "www.baidu.com",
+        "text": "This is the third news.",
+        "date": "2016-12-29"
+    },
+    {
+        "link": "www.baidu.com",
+        "text": "This is the forth news.",
+        "date": "2016-12-29"
+    }
+]
