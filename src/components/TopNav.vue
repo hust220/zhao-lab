@@ -6,10 +6,16 @@
           <router-link to="/home">Home</router-link>
         </el-menu-item>
         <el-menu-item index="1">
-          <router-link to="/people">People</router-link>
+          <router-link to="/news">News</router-link>
+        </el-menu-item>
+        <el-menu-item index="1">
+          <router-link to="/research">Research</router-link>
         </el-menu-item>
         <el-menu-item index="1">
           <router-link to="/publications">Publications</router-link>
+        </el-menu-item>
+        <el-menu-item index="1">
+          <router-link to="/people">People</router-link>
         </el-menu-item>
         <el-menu-item index="1">
           <router-link to="/resources">Resources</router-link>
@@ -45,8 +51,5 @@
 a {
   color: rgb(71, 86, 105);
   text-decoration: none;
-}
-.top-nav {
-  margin-bottom: 10px;
 }
 </style>

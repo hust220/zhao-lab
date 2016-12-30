@@ -1,11 +1,19 @@
 <template>
   <div id="app">
+    <!-- Top -->
     <el-row>
       <el-col :span="18" :offset="3">
-        <demo></demo>
+        <top></top>
       </el-col>
     </el-row>
+
+    <!-- TopNav-->
     <top-nav></top-nav>
+
+    <!-- Demo -->
+    <demo v-if="showDemo"></demo>
+
+    <!-- Page -->
     <el-row>
       <el-col :span="18" :offset="3">
         <router-view></router-view>
@@ -16,16 +24,31 @@
 </template>
 
 <script>
-  import Hello from './components/Hello'
+  import Top from './components/Top'
   import TopNav from './components/TopNav'
   import Demo from './components/Demo'
+  import { bus } from './bus.js'
 
   export default {
     name: 'app',
+    data() {
+      return {
+        showDemo: false
+      }
+    },
+    created() {
+      var v = this
+      bus.$on('show-demo', function () {
+        v.showDemo = true
+      })
+      bus.$on('hide-demo', function () {
+        v.showDemo = false
+      })
+    },
     components: {
-      'hello': Hello,
       'top-nav': TopNav,
-      'demo': Demo
+      'demo': Demo,
+      'top': Top
     }
   }
 </script>

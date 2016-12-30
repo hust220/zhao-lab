@@ -1,5 +1,5 @@
 <template>
-  <el-card>
+  <el-card class="publications">
     <el-row>
       <el-col :span="24">
         <ol>
@@ -39,3 +39,9 @@
 
   }
 </script>
+
+<style>
+  .publications {
+    margin: 10px 0px;
+  }
+</style>

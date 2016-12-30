@@ -1,5 +1,5 @@
 <template>
-    <el-card>
+    <el-card class="people">
         <el-row>
             <el-col :span="24">
                 People
@@ -12,3 +12,9 @@
     export default {
     }
 </script>
+
+<style>
+  .people {
+    margin: 10px 0px;
+  }
+</style>

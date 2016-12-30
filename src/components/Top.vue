@@ -1,8 +1,15 @@
 <template>
-  <div class="demo">
-    <img src="static/demo1.jpg" v-show="count % 3 == 0">
-    <img src="static/demo2.jpg" v-show="count % 3 == 1">
-    <img src="static/demo3.jpg" v-show="count % 3 == 2">
+  <div class="top">
+    <table>
+      <tr>
+        <td>
+          <img :src="'static/'+top.logo" />
+        </td>
+        <td>
+          <span class="top-title">{{top.title}}</span><br><span class="top-intro">{{top.intro}}</span>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -10,20 +17,15 @@
   export default {
     data() {
       return {
-        count: 0,
         top: []
       }
     },
     created() {
       this.fetch_data()
-      var v = this
-      window.setInterval(function () {
-        v.count += 1
-      }, 5000)
     },
-    watch: {
-      '$route': 'fetch_data'
-    },
+    // watch: {
+    //   '$route': 'fetch_data'
+    // },
     methods: {
       fetch_data() {
         var v = this
@@ -32,20 +34,21 @@
         }, (response) => {
         })
       }
+    },
+    beforeDestroy () {
+      console.log('top destroy')
     }
   }
 </script>
 
 <style>
-.demo {
+.top {
   text-align: left;
-  height: 320px;
-  overflow: hidden;
+  height: 50px;
+  padding: 10px 0px;
 }
-.demo img {
-  width: 100%;
-  margin-top: -345px;
-  /*height: 320px;*/
+.top img {
+  height: 50px;
 }
 .top-title {
     font-size: 110%;

@@ -7,6 +7,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import App from './App'
 import Home from './components/Home'
+import News from './components/News'
+import Research from './components/Research'
 import People from './components/People'
 import Publications from './components/Publications'
 import Serv1 from './components/services/Serv1'
@@ -17,10 +19,14 @@ Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
+var bus = new Vue()
+
 const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/home', component: Home },
+    { path: '/news', component: News },
+    { path: '/research', component: Research },
     { path: '/people', component: People },
     { path: '/publications', component: Publications },
     { path: '/serv1', component: Serv1 },

@@ -1,5 +1,5 @@
 <template>
-    <el-card>
+    <el-card class="resources">
         <el-row>
             <el-col :span="24">
                 Resources
@@ -12,3 +12,10 @@
     export default {
     }
 </script>
+
+<style>
+.resources {
+  margin: 10px 0px;
+}
+
+</style>
