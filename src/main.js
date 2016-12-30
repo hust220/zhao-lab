@@ -9,8 +9,8 @@ import App from './App'
 import Home from './components/Home'
 import People from './components/People'
 import Publications from './components/Publications'
-import Serv1 from './components/Serv1'
-import Serv2 from './components/Serv2'
+import Serv1 from './components/services/Serv1'
+import Serv2 from './components/services/Serv2'
 import Resources from './components/Resources'
 
 Vue.use(ElementUI)
