@@ -39,8 +39,8 @@
     methods: {
       fetch_data() {
         var v = this
-        this.$http.get('static/news.json').then((response) => {
-          v.news = response.body
+        this.$http.get('./static/news.json.txt').then((response) => {
+          v.news = JSON.parse(response.body)
         }, (response) => {
         })
       }

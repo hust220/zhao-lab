@@ -32,7 +32,7 @@
     methods: {
       fetch_data() {
         var v = this
-        this.$http.get('static/intro.html').then((response) => {
+        this.$http.get('./static/intro.html').then((response) => {
           v.intro = response.body
         }, (response) => {
         })

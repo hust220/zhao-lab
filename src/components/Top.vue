@@ -6,7 +6,7 @@
           <img :src="'static/'+top.logo" />
         </td>
         <td>
-          <span class="top-title">{{top.title}}</span><br><span class="top-intro">{{top.intro}}</span>
+          <span class="top-title" v-text="top.title"></span><br><span class="top-intro" v-text="top.intro"></span>
         </td>
       </tr>
     </table>
@@ -17,7 +17,7 @@
   export default {
     data() {
       return {
-        top: []
+        top: {}
       }
     },
     created() {
@@ -29,8 +29,8 @@
     methods: {
       fetch_data() {
         var v = this
-        this.$http.get('static/top.json').then((response) => {
-          v.top = response.body
+        this.$http.get('./static/top.json.txt').then((response) => {
+          v.top = JSON.parse(response.body)
         }, (response) => {
         })
       }

@@ -30,8 +30,8 @@
     methods: {
       fetch_data() {
         var v = this
-        this.$http.get('static/pubs.json').then((response) => {
-          v.refs = response.body
+        this.$http.get('./static/pubs.json.txt').then((response) => {
+          v.refs = JSON.parse(response.body)
         }, (response) => {
         })
       }
