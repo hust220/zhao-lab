@@ -11,8 +11,10 @@ import News from './components/News'
 import Research from './components/Research'
 import People from './components/People'
 import Publications from './components/Publications'
-import Serv1 from './components/services/Serv1'
-import Serv2 from './components/services/Serv2'
+import ComplexDistance from './components/services/ComplexDistance'
+import DynamicalContact from './components/services/DynamicalContact'
+import DynamicalCorrelation from './components/services/DynamicalCorrelation'
+import StructureDistance from './components/services/StructureDistance'
 import Resources from './components/Resources'
 
 Vue.use(ElementUI)
@@ -29,8 +31,10 @@ const router = new VueRouter({
     { path: '/research', component: Research },
     { path: '/people', component: People },
     { path: '/publications', component: Publications },
-    { path: '/serv1', component: Serv1 },
-    { path: '/serv2', component: Serv2 },
+    { path: '/complex-distance', component: ComplexDistance },
+    { path: '/dynamical-contact', component: DynamicalContact },
+    { path: '/dynamical-correlation', component: DynamicalCorrelation },
+    { path: '/structure-distance', component: StructureDistance },
     { path: '/resources', component: Resources },
   ]
 })

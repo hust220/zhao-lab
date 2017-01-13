@@ -23,10 +23,16 @@
         <el-submenu index="2">
           <template slot="title">Services</template>
           <el-menu-item index="2-1">
-            <router-link to="/serv1">Serv1</router-link>
+            <router-link to="/complex-distance">Complex Distance</router-link>
+          </el-menu-item>
+          <el-menu-item index="2-1">
+            <router-link to="/dynamical-contact">Dynamical Contact</router-link>
+          </el-menu-item>
+          <el-menu-item index="2-1">
+            <router-link to="/dynamical-correlation">Dynamical Correlation</router-link>
           </el-menu-item>
           <el-menu-item index="2-2">
-            <router-link to="/serv2">Serv2</router-link>
+            <router-link to="/structure-distance">Structure Distance</router-link>
           </el-menu-item>
         </el-submenu>
         <el-menu-item index="3"><a href="mailto:wj_hust08@hust.edu.cn?cc=yxiao@hust.edu.cn">Contact</a></el-menu-item>
