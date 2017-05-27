@@ -1,26 +1,19 @@
 <template>
   <el-card class="serv1">
     <div slot="header" class="clearfix">
-      <span>Dynamical Correlation</span>
+      <span>Complex Distance</span>
     </div>
     <el-row>
       <el-col :span="24">
-        <el-form ref="form" :model="form" label-width="250px">
+        <el-form ref="form" :model="form" label-width="150px">
           <el-form-item label="PDB file content">
             <el-input type="textarea" v-model="form.desc"></el-input>
-            <input type="file" ref="pdb_file">
-          </el-form-item>
-
-          <el-form-item label="Number of CA atoms">
-            <el-col :span="10">
-              <el-input v-model="form.name"></el-input>
-            </el-col>
-          </el-form-item>
-
-          <el-form-item label="Number of frames">
-            <el-col :span="10">
-              <el-input v-model="form.name"></el-input>
-            </el-col>
+            <el-upload
+              action="//jsonplaceholder.typicode.com/posts/"
+              :on-success="handleSuccess">
+              <el-button size="small" type="primary">Upload</el-button>
+              <div class="el-upload__tip" slot="tip">Upload the pdb file</div>
+            </el-upload>
           </el-form-item>
 
           <el-form-item>

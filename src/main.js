@@ -11,6 +11,9 @@ import News from './components/News'
 import Research from './components/Research'
 import People from './components/People'
 import Publications from './components/Publications'
+import Dca from './components/services/Dca'
+import Network from './components/services/Network'
+import NetworkPython from './components/services/NetworkPython'
 import ComplexDistance from './components/services/ComplexDistance'
 import DynamicalContact from './components/services/DynamicalContact'
 import DynamicalCorrelation from './components/services/DynamicalCorrelation'
@@ -31,7 +34,9 @@ const router = new VueRouter({
     { path: '/research', component: Research },
     { path: '/people', component: People },
     { path: '/publications', component: Publications },
-    { path: '/complex-distance', component: ComplexDistance },
+    { path: '/DCA', component: Dca },
+    { path: '/network', component: Network },
+    { path: '/network-python', component: NetworkPython },
     { path: '/dynamical-contact', component: DynamicalContact },
     { path: '/dynamical-correlation', component: DynamicalCorrelation },
     { path: '/structure-distance', component: StructureDistance },

@@ -1,14 +1,14 @@
 <template>
   <el-card class="serv1">
     <div slot="header" class="clearfix">
-      <span>Structure Distance</span>
+      <span>DCA</span>
     </div>
     <el-row>
-      <el-col :span="20">
+      <el-col :span="24">
         <el-form ref="form" :model="form" label-width="150px">
-          <el-form-item label="PDB file content">
-            <el-input type="textarea" :rows="5" v-model="form.pdb"></el-input>
-            <input type="file" ref="pdb_file">
+          <el-form-item label="MSA">
+            <el-input type="textarea" v-model="form.msa"></el-input>
+            <input type="file" ref="msa_file">
           </el-form-item>
 
           <el-form-item>
@@ -16,7 +16,6 @@
             <el-button>Cancel</el-button>
           </el-form-item>
         </el-form>
-
       </el-col>
     </el-row>
     <el-row v-if="result">
@@ -30,11 +29,11 @@ export default {
   data() {
     return {
       form: {
-        pdb: '',
-        pdb_file: ''
+        msa: '',
+        msa_file: '',
       },
-      result: '',
-      id: ''
+      id: '',
+      result: ''
     }
   },
 
@@ -56,9 +55,9 @@ export default {
     onSubmit() {
       var v = this
       var formData = new window.FormData()
-      formData.append('script', 'structure-distance')
-      formData.append('pdb', v.form.pdb)
-      formData.append('pdb_file', v.$refs.pdb_file.files[0])
+      formData.append('script', 'DCA')
+      formData.append('msa', v.form.msa)
+      formData.append('msa_file', v.$refs.msa_file.files[0])
       this.$http.post('/jntask.php', formData).then((response) => {
         console.log(response.body)
         v.id = response.body
@@ -66,9 +65,15 @@ export default {
       }, (response) => {
         console.log(response.body)
       })
+    },
+
+    handleSuccess(response, file, fileList) {
+      this.form.fileList.push(file.name)
+      console.log(this.form.fileList)
     }
   }
 }
+
 </script>
 
 <style>

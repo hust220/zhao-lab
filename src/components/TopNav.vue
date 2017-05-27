@@ -23,6 +23,15 @@
         <el-submenu index="2">
           <template slot="title">Services</template>
           <el-menu-item index="2-1">
+            <router-link to="/DCA">DCA</router-link>
+          </el-menu-item>
+          <el-menu-item index="2-1">
+            <router-link to="/network">network</router-link>
+          </el-menu-item>
+          <el-menu-item index="2-1">
+            <router-link to="/network-python">network-python</router-link>
+          </el-menu-item>
+          <el-menu-item index="2-1">
             <router-link to="/complex-distance">Complex Distance</router-link>
           </el-menu-item>
           <el-menu-item index="2-1">
