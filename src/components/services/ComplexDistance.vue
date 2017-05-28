@@ -5,15 +5,10 @@
     </div>
     <el-row>
       <el-col :span="24">
-        <el-form ref="form" :model="form" label-width="150px">
-          <el-form-item label="PDB file content">
-            <el-input type="textarea" v-model="form.desc"></el-input>
-            <el-upload
-              action="//jsonplaceholder.typicode.com/posts/"
-              :on-success="handleSuccess">
-              <el-button size="small" type="primary">Upload</el-button>
-              <div class="el-upload__tip" slot="tip">Upload the pdb file</div>
-            </el-upload>
+        <el-form ref="form" label-position="top" :model="form" label-width="150px">
+          <el-form-item label="PDB File">
+            <el-input type="textarea" v-model="form.pdb"></el-input>
+            <input type="file" ref="pdb_file">
           </el-form-item>
 
           <el-form-item>
@@ -21,45 +16,75 @@
             <el-button>Cancel</el-button>
           </el-form-item>
         </el-form>
-
       </el-col>
+    </el-row>
+    <el-row v-if="result">
+      <el-col :span="15"><el-input style="margin-left:150px" type="textarea" :rows="25" v-model="result"></el-input></el-col>
     </el-row>
   </el-card>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        form: {
-          name: '',
-          region: 'option1',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: '',
-          fileList: []
-        }
-      }
-    },
-    methods: {
-      onSubmit() {
-        console.log('submit!')
+function isStrEmpty(str) {
+  return str.replace(/(^\s*)|(\s*$)/g, '').length === 0
+}
+
+export default {
+  data() {
+    return {
+      form: {
+        pdb: '',
+        pdb_file: '',
       },
-      handleSuccess(response, file, fileList) {
-        this.form.fileList.push(file.name)
-        console.log(this.form.fileList)
+      id: '',
+      result: ''
+    }
+  },
+
+  methods: {
+    get_result() {
+      var v = this
+      this.$http.get('http://zhao.phy.ccnu.edu.cn:8122/server/result.php?id=' + v.id).then((response) => {
+        var result = response.body
+        if (result !== '') {
+          v.result = result
+        } else {
+          window.setTimeout(v.get_result, 500)
+        }
+      }, (response) => {
+        console.log(response)
+      })
+    },
+
+    onSubmit() {
+      var v = this
+      var formData = new window.FormData()
+      formData.append('script', 'complex-distance')
+      if (!isStrEmpty(v.form.pdb)) {
+        formData.append('pdb', v.form.pdb)
       }
+      formData.append('pdb_file', v.$refs.pdb_file.files[0])
+      this.$http.post('http://zhao.phy.ccnu.edu.cn:8122/server/jntask.php', formData).then((response) => {
+        console.log(response.body)
+        v.id = response.body
+        v.get_result()
+      }, (response) => {
+        console.log(response.body)
+      })
+    },
+
+    handleSuccess(response, file, fileList) {
+      this.form.fileList.push(file.name)
+      console.log(this.form.fileList)
     }
   }
+}
 
 </script>
 
 <style>
-  .serv1 {
-    margin: 10px 0px;
-  }
+.serv1 {
+  margin: 10px 0px;
+}
 </style>
 

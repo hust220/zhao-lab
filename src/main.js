@@ -38,6 +38,7 @@ const router = new VueRouter({
     { path: '/DCA', component: Dca },
     { path: '/network', component: Network },
     { path: '/network-python', component: NetworkPython },
+    { path: '/complex-distance', component: ComplexDistance },
     { path: '/dynamical-contact', component: DynamicalContact },
     { path: '/dynamical-correlation', component: DynamicalCorrelation },
     { path: '/structure-distance', component: StructureDistance },
