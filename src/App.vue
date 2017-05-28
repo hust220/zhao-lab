@@ -1,21 +1,28 @@
 <template>
   <div id="app">
     <!-- Top -->
+    <!--
     <el-row>
       <el-col :span="18" :offset="3">
         <top></top>
       </el-col>
     </el-row>
+    -->
 
     <!-- TopNav-->
+    <!--
     <top-nav></top-nav>
+    -->
 
     <!-- Demo -->
-    <demo v-if="showDemo"></demo>
+    <!-- <demo v-if="showDemo"></demo> -->
 
     <!-- Page -->
     <el-row>
-      <el-col :span="18" :offset="3">
+      <el-col :span="4">
+        <top-nav></top-nav>
+      </el-col>
+      <el-col :span="20" :offset="4" class="service-input-area">
         <router-view></router-view>
       </el-col>
     </el-row>
@@ -63,5 +70,8 @@
 }
 body {
   margin: 0px;
+}
+.service-input-area {
+  padding: 80px;
 }
 </style>

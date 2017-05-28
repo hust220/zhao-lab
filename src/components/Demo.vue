@@ -11,7 +11,7 @@
     data() {
       return {
         count: 0,
-        top: []
+        // top: []
       }
     },
     created() {
@@ -27,10 +27,10 @@
     methods: {
       fetch_data() {
         var v = this
-        this.$http.get('static/top.json').then((response) => {
-          v.top = response.body
-        }, (response) => {
-        })
+        // this.$http.get('static/top.json').then((response) => {
+        //   v.top = response.body
+        // }, (response) => {
+        // })
       }
     }
   }

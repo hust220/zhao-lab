@@ -10,6 +10,7 @@ import Home from './components/Home'
 import News from './components/News'
 import Research from './components/Research'
 import People from './components/People'
+import Services from './components/Services'
 import Publications from './components/Publications'
 import Dca from './components/services/Dca'
 import Network from './components/services/Network'
@@ -28,7 +29,7 @@ var bus = new Vue()
 
 const router = new VueRouter({
   routes: [
-    { path: '/', component: Home },
+    { path: '/', component: Services },
     { path: '/home', component: Home },
     { path: '/news', component: News },
     { path: '/research', component: Research },

@@ -1,11 +1,11 @@
 <template>
   <el-card class="serv1">
     <div slot="header" class="clearfix">
-      <span>DCA</span>
+      <span>Direct Coupling Analysis</span>
     </div>
     <el-row>
       <el-col :span="24">
-        <el-form ref="form" :model="form" label-width="150px">
+        <el-form ref="form" label-position="top" :model="form" label-width="150px">
           <el-form-item label="MSA">
             <el-input type="textarea" v-model="form.msa"></el-input>
             <input type="file" ref="msa_file">

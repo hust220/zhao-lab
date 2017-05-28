@@ -1,70 +1,54 @@
 <template>
-  <el-row class="top-nav">
-    <el-menu default-active="1" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-col :span="18" :offset="3">
-        <el-menu-item index="1">
-          <router-link to="/home">Home</router-link>
-        </el-menu-item>
-        <el-menu-item index="1">
-          <router-link to="/news">News</router-link>
-        </el-menu-item>
-        <el-menu-item index="1">
-          <router-link to="/research">Research</router-link>
-        </el-menu-item>
-        <el-menu-item index="1">
-          <router-link to="/publications">Publications</router-link>
-        </el-menu-item>
-        <el-menu-item index="1">
-          <router-link to="/people">People</router-link>
-        </el-menu-item>
-        <el-menu-item index="1">
-          <router-link to="/resources">Resources</router-link>
-        </el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">Services</template>
-          <el-menu-item index="2-1">
-            <router-link to="/DCA">DCA</router-link>
-          </el-menu-item>
-          <el-menu-item index="2-1">
-            <router-link to="/network">network</router-link>
-          </el-menu-item>
-          <el-menu-item index="2-1">
-            <router-link to="/network-python">network-python</router-link>
-          </el-menu-item>
-          <el-menu-item index="2-1">
-            <router-link to="/complex-distance">Complex Distance</router-link>
-          </el-menu-item>
-          <el-menu-item index="2-1">
-            <router-link to="/dynamical-contact">Dynamical Contact</router-link>
-          </el-menu-item>
-          <el-menu-item index="2-1">
-            <router-link to="/dynamical-correlation">Dynamical Correlation</router-link>
-          </el-menu-item>
-          <el-menu-item index="2-2">
-            <router-link to="/structure-distance">Structure Distance</router-link>
-          </el-menu-item>
-        </el-submenu>
-        <el-menu-item index="3"><a href="mailto:wj_hust08@hust.edu.cn?cc=yxiao@hust.edu.cn">Contact</a></el-menu-item>
-      </el-col>
-    </el-menu>
-    <div class="line"></div>
-  </el-row>
+  <div class="top-nav" :style="'height:'+height+'px'">
+    <a href="http://zhao.phy.ccnu.edu.cn"><div class="link"><i class="el-icon-caret-left"></i>Zhao Lab</div></a>
+    <router-link :to="link.href" v-for="link in links"><div class="link" v-text="link.title"></div></router-link>
+  </div>
 </template>
 
 <script>
   export default {
     name: 'nav',
-    methods: {
-      handleSelect(key, keyPath) {
-        // console.log(key, keyPath)
+    data() {
+      return {
+        links: [
+          {href: '/DCA', title: 'DCA'},
+          {href: '/network', title: 'Network'},
+          {href: '/network-python', title: 'Network Python'},
+          {href: '/complex-distance', title: 'Complex Distance'},
+          {href: '/dynamical-contact', title: 'Dynamical Contact'},
+          {href: '/dynamical-correlation', title: 'Dynamical Correlation'},
+          {href: '/structure-distance', title: 'Structure Distance'}
+        ],
+        height: 0
       }
+    },
+    methods: {
+      set_height() {
+        this.height = window.innerHeight
+      }
+    },
+    mounted() {
+      var v = this
+      v.set_height()
+      window.addEventListener('resize', () => { v.set_height() })
     }
   }
 </script>
 
 <style scoped>
 a {
-  color: rgb(71, 86, 105);
+  color: rgb(191, 203, 217);
   text-decoration: none;
+}
+.top-nav {
+  background-color: rgb(50, 65, 87);
+  position: fixed;
+  overflow-y: auto;
+}
+.top-nav .link {
+  padding: 20px;
+}
+.top-nav .link:hover {
+  background-color: rgb(72, 87, 106);
 }
 </style>
