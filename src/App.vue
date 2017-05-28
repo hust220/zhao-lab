@@ -72,6 +72,6 @@ body {
   margin: 0px;
 }
 .service-input-area {
-  padding: 80px;
+  padding: 40px;
 }
 </style>

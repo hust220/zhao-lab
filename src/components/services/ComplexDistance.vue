@@ -1,4 +1,5 @@
 <template>
+  <div>
   <el-card class="serv1">
     <div slot="header" class="clearfix">
       <span>Complex Distance</span>
@@ -12,16 +13,25 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" @click="onSubmit">Submit</el-button>
+            <el-button type="primary" @click="onSubmit" :disabled="!submitEnabled">Submit</el-button>
             <el-button>Cancel</el-button>
           </el-form-item>
         </el-form>
       </el-col>
     </el-row>
+  </el-card>
+  <el-card v-if="id">
+    <div slot="header" class="clearfix">
+      <span>Task Result</span>
+    </div>
     <el-row v-if="result">
-      <el-col :span="15"><el-input style="margin-left:150px" type="textarea" :rows="25" v-model="result"></el-input></el-col>
+      <el-col :span="15">
+        Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=&id=' + id" v-text="id+'.txt'"></a>
+        <el-input style="margin-left:150px" type="textarea" :rows="25" v-model="result"></el-input>
+      </el-col>
     </el-row>
   </el-card>
+  </div>
 </template>
 
 <script>
@@ -37,7 +47,8 @@ export default {
         pdb_file: '',
       },
       id: '',
-      result: ''
+      result: '',
+      submitEnabled: true
     }
   },
 
@@ -58,6 +69,8 @@ export default {
 
     onSubmit() {
       var v = this
+      v.id = ''
+      v.submitEnabled = false
       var formData = new window.FormData()
       formData.append('script', 'complex-distance')
       if (!isStrEmpty(v.form.pdb)) {
@@ -68,8 +81,10 @@ export default {
         console.log(response.body)
         v.id = response.body
         v.get_result()
+        v.submitEnabled = true
       }, (response) => {
         console.log(response.body)
+        v.submitEnabled = true
       })
     },
 
