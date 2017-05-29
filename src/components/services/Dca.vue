@@ -26,7 +26,7 @@
     </div>
     <el-row v-if="result">
       <el-col :span="15">
-        Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=&id=' + id" v-text="id+'.txt'"></a>
+        Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=txt&id=' + id" v-text="id+'.txt'"></a>
         <el-input style="margin-left:150px" type="textarea" :rows="25" v-model="result"></el-input>
       </el-col>
     </el-row>

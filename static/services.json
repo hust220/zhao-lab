@@ -1,0 +1,37 @@
+[
+    {
+        "href": "/DCA", 
+        "title": "DCA", 
+        "intro": "Direct coupling analysis. Calculate co-evolution information in sequences."
+    }, 
+    {
+        "href": "/network", 
+        "title": "Network", 
+        "intro": "introduction"
+    }, 
+    {
+        "href": "/network-python", 
+        "title": "Network Python", 
+        "intro": "introduction"
+    }, 
+    {
+        "href": "/complex-distance", 
+        "title": "Complex Distance", 
+        "intro": "introduction"
+    }, 
+    {
+        "href": "/dynamical-contact", 
+        "title": "Dynamical Contact", 
+        "intro": "introduction"
+    }, 
+    {
+        "href": "/dynamical-correlation", 
+        "title": "Dynamical Correlation", 
+        "intro": "introduction"
+    }, 
+    {
+        "href": "/structure-distance", 
+        "title": "Structure Distance", 
+        "intro": "Calculate distances of all atom pairs in tertiary structure."
+    }
+]

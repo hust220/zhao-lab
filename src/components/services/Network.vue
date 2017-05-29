@@ -27,7 +27,7 @@
       </div>
       <el-row v-if="result">
         <el-col :span="15">
-          Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=&id=' + id" v-text="id+'.txt'"></a>
+          Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=tar.gz&id=' + id" v-text="id+'.tar.gz'"></a>
         </el-col>
       </el-row>
     </el-card>

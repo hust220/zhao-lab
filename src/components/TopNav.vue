@@ -1,6 +1,7 @@
 <template>
   <div class="top-nav" :style="'height:'+height+'px'">
     <a href="http://zhao.phy.ccnu.edu.cn"><div class="link"><i class="el-icon-caret-left"></i>Zhao Lab</div></a>
+    <router-link to="/services"><div class="link">Services</div></router-link>
     <router-link :to="link.href" v-for="link in links"><div class="link" v-text="link.title"></div></router-link>
   </div>
 </template>
@@ -10,27 +11,28 @@
     name: 'nav',
     data() {
       return {
-        links: [
-          {href: '/DCA', title: 'DCA'},
-          {href: '/network', title: 'Network'},
-          {href: '/network-python', title: 'Network Python'},
-          {href: '/complex-distance', title: 'Complex Distance'},
-          {href: '/dynamical-contact', title: 'Dynamical Contact'},
-          {href: '/dynamical-correlation', title: 'Dynamical Correlation'},
-          {href: '/structure-distance', title: 'Structure Distance'}
-        ],
+        links: [],
         height: 0
       }
     },
     methods: {
       set_height() {
         this.height = window.innerHeight
+      },
+      fetch_data() {
+        var v = this
+        v.$http.get('./static/services.json').then((response) => {
+          v.links = response.body
+          console.log(v.links)
+        }, (response) => {
+        })
       }
     },
-    mounted() {
+    created() {
       var v = this
       v.set_height()
       window.addEventListener('resize', () => { v.set_height() })
+      v.fetch_data()
     }
   }
 </script>
