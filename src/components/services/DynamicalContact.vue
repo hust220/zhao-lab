@@ -57,7 +57,8 @@ export default {
       form: {
         pdb: '',
         pdb_file: '',
-        n_ca: '',
+        n_heavy_atoms: '',
+        n_ca_atoms: '',
         n_frames: ''
       },
       id: '',
