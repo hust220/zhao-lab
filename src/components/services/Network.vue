@@ -6,7 +6,7 @@
       </div>
       <el-row>
         <el-col :span="24">
-          <el-form ref="form" label-position="top" :model="form" label-width="150px">
+          <el-form ref="form" label-position="top" :model="form">
             <el-form-item label="PDB File">
               <el-input type="textarea" v-model="form.pdb"></el-input>
               <input type="file" ref="pdb_file">
