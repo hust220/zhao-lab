@@ -6,7 +6,7 @@
     </div>
     <el-row>
       <el-col :span="24">
-        <el-form ref="form" label-position="top" :model="form" label-width="150px">
+        <el-form ref="form" label-position="top" :model="form">
           <el-form-item label="MSA File">
             <el-input type="textarea" v-model="form.msa"></el-input>
             <input type="file" ref="msa_file">
@@ -27,8 +27,8 @@
     </div>
     <el-row v-if="result">
       <el-col :span="15">
-        Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=txt&id=' + id" v-text="id+'.txt'"></a>
-        <el-input style="margin-left:150px" type="textarea" :rows="25" v-model="result"></el-input>
+        <p>Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=txt&id=' + id" v-text="id+'.txt'"></a></p>
+        <el-input type="textarea" :rows="25" v-model="result"></el-input>
       </el-col>
     </el-row>
   </el-card>

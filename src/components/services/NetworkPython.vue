@@ -20,6 +20,7 @@
               <el-button>Cancel</el-button>
             </el-form-item>
           </el-form>
+          <p>Click to show <a href="javascript:;" @click="get_example">example</a></p>
         </el-col>
       </el-row>
     </el-card>
@@ -48,7 +49,7 @@ export default {
       form: {
         pdb: '',
         pdb_file: '',
-        cutoff: 0,
+        cutoff: '',
       },
       id: '',
       result: '',
@@ -57,6 +58,18 @@ export default {
   },
 
   methods: {
+    get_example() {
+      var v = this
+      this.$http.get('http://zhao.phy.ccnu.edu.cn:8122/server/example.php?task=network-python').then((response) => {
+        var r = response.body
+        for (var i in r) {
+          v.form[i] = r[i]
+        }
+      }, (response) => {
+        console.log(response)
+      })
+    },
+
     get_result() {
       var v = this
       this.$http.get('http://zhao.phy.ccnu.edu.cn:8122/server/result.php?id=' + v.id).then((response) => {

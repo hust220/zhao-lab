@@ -6,7 +6,7 @@
     </div>
     <el-row>
       <el-col :span="24">
-        <el-form ref="form" label-position="top" :model="form" label-width="150px">
+        <el-form ref="form" label-position="top" :model="form">
           <el-form-item label="PDB File">
             <el-input type="textarea" v-model="form.pdb"></el-input>
             <input type="file" ref="pdb_file">
@@ -17,6 +17,7 @@
             <el-button>Cancel</el-button>
           </el-form-item>
         </el-form>
+        <p>Click to show <a href="javascript:;" @click="get_example">example</a></p>
       </el-col>
     </el-row>
   </el-card>
@@ -26,8 +27,8 @@
     </div>
     <el-row v-if="result">
       <el-col :span="15">
-        Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=&id=' + id" v-text="id+'.txt'"></a>
-        <el-input style="margin-left:150px" type="textarea" :rows="25" v-model="result"></el-input>
+        <p>Download: <a :href="'http://zhao.phy.ccnu.edu.cn:8122/server/result.php?download=&id=' + id" v-text="id+'.txt'"></a></p>
+        <el-input type="textarea" :rows="25" v-model="result"></el-input>
       </el-col>
     </el-row>
   </el-card>
@@ -53,6 +54,18 @@ export default {
   },
 
   methods: {
+    get_example() {
+      var v = this
+      this.$http.get('http://zhao.phy.ccnu.edu.cn:8122/server/example.php?task=complex-distance').then((response) => {
+        var r = response.body
+        for (var i in r) {
+          v.form[i] = r[i]
+        }
+      }, (response) => {
+        console.log(response)
+      })
+    },
+
     get_result() {
       var v = this
       this.$http.get('http://zhao.phy.ccnu.edu.cn:8122/server/result.php?id=' + v.id).then((response) => {
